@@ -1,0 +1,76 @@
+import java.util.*;
+import java.io.*;
+class Node
+{
+  int data;
+  Node next;
+  public Node(int ele)
+  {
+    data = ele;
+  }
+}
+class CLL
+{
+  Node head;
+  Node tail;
+  public void insert(int data)
+  {
+    Node newnode = new Node(data);
+    if (head==null)
+    {
+      head=newnode;
+      tail=newnode;
+    }
+    else
+    {
+      tail.next=newnode;
+      tail=newnode;
+      tail.next=head;
+    }
+  }
+  public void display()
+  {
+    if(head == null)
+    {
+      return;
+    }
+    Node temp = head;
+    do
+    {
+      System.out.print(temp.data+" ");
+      temp=temp.next;
+    }while(temp!=head);
+    System.out.println();
+  }
+}
+public class Main
+{
+  public static void main(String[] args)
+  {
+    CLL l = new CLL();
+    Scanner sc = new Scanner(System.in);
+    if(true)
+    {
+      int val=sc.nextInt();
+      l.insert(val);
+    }
+    while(true)
+    {
+      int choice = sc.nextInt();
+      if( choice==1)
+      {
+        int data=sc.nextInt();
+        l.insert(data);
+      }
+      else if(choice == 0)
+      {
+        l.display();
+        break;
+      }
+      else
+      {
+        break;
+      }
+    }
+  }
+}
