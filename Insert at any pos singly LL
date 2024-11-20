@@ -1,0 +1,90 @@
+import java.io.*;
+import java.util.*;
+class Main 
+{
+    Node head;
+    class Node
+    {
+        int data;
+        Node next;
+        Node(int ele)
+        {
+            data=ele;
+            next=null;
+        }
+    }
+    void createlist(int ele)
+    {
+        Node newnode=new Node(ele);
+        if(head==null)
+        {
+            head=newnode;
+        }
+        else
+        {
+            Node temp=head;
+            while(temp.next!=null)
+            {
+                temp=temp.next;
+            }
+            temp.next=newnode;
+        }
+    }
+    void display()
+    {
+        Node temp=head;
+        while(temp!=null)
+        {
+            System.out.print(temp.data+"-->");
+            temp=temp.next;
+        }
+    }
+    void insertati(int val,int pos)
+    {
+        Node newnode = new Node(val);
+        int count=0;
+        if( head ==null)
+        {
+            head = newnode;
+        }
+        else if (pos==0)
+        {
+            newnode.next = head;
+            head=newnode;
+        }
+        else
+        {
+            Node last = head;
+            while(count<pos-1)
+            {
+                last = last.next;
+                count++;
+            }
+            newnode.next=last.next;
+            last.next=newnode;
+        }
+    }
+    public static void main(String[] args)
+    {
+        Main l=new Main();
+        Scanner sc = new Scanner(System.in);
+        int ele = 0;
+        while(ele!=-1)
+        {
+            ele=sc.nextInt();
+            if(ele==-1)
+            {
+                break;
+            }
+            else
+            {
+                l.createlist(ele);
+            }
+        }
+        int pos = sc.nextInt();
+        int val = sc.nextInt();
+        l.insertati(val,pos);
+        l.display();
+        
+    }
+}
