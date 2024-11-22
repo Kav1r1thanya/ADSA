@@ -1,0 +1,101 @@
+import java.util.*;
+import java.io.*;
+public class Main 
+{
+    public static void main(String[] args)
+    {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        Stack stack = new Stack();
+        for(int i=0; i<n; i++)
+        {
+            int q= sc.nextInt();
+            switch(q)
+            {
+                case 1:
+                    int data = sc.nextInt();
+                    stack.push(data);
+                    break;
+                case 2:
+                    System.out.println(stack.pop());
+                    break;
+                case 3:
+                    System.out.println(stack.top());
+                    break;
+                case 4:
+                    System.out.println(stack.size());
+                    break;
+                case 5:
+                    System.out.println(stack.isEmpty());
+                    break;
+            }
+        }
+    }
+}
+class Node
+{
+    int data;
+    Node next;
+    public Node(int data)
+    {
+        this.data = data;
+        this.next = null;
+    }
+    public int getData()
+    {
+        return data;
+    }
+    public Node getNext()
+    {
+        return next;
+    }
+    public void setNext(Node next)
+    {
+        this.next = next;
+    }
+}
+class stack
+{
+    Node head;
+    int size;
+    public stack()
+    {
+        head = null;
+        size = 0;
+    }
+    public void push(int data)
+    {
+        Node newnode = new Node(data);
+        newnode.setNext(head);
+        head = newnode;
+        size++;
+    }
+    public int pop()
+    {
+        if(isEmpty())
+        {
+            return -1;
+        }
+        int data = head.getData();
+        head = head.getNext();
+        size--;
+        return data;
+    }
+    public int top()
+    {
+        if (isEmpty())
+        {
+            return -1;
+        }
+        return head.getData();
+    }
+    public int size()
+    {
+        return size;
+    }
+    public boolean isEmpty()
+    {
+        return size==0;
+    }
+    
+}
