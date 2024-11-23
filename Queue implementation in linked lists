@@ -1,0 +1,116 @@
+import java.util.*;
+import java.io.*;
+public class Main 
+{
+   public static void main(String[] args)
+   {
+       Scanner sc = new Scanner(System.in);
+       int n = sc.nextInt();
+       Queue queue = new Queue();
+       for(int i=0;i<n;i++)
+       {
+           int q = sc.nextInt();
+           switch(q)
+           {
+               case 1:
+                   int data = sc.nextInt();
+                   queue.enqueue(data);
+                   break;
+                case 2:
+                    System.out.println(queue.dequeue());
+                    break;
+                case 3:
+                    System.out.println(queue.front());
+                    break;
+                case 4:
+                    System.out.println(queue.getsize());
+                    break;
+                case 5:
+                    System.out.println(queue.isEmpty());
+                    break;
+           }
+       }
+   }
+}
+class Node 
+{
+    int data;
+    Node next;
+    public Node(int data)
+    {
+        this.data = data;
+        this.next = null;
+    }
+    public int getData()
+    {
+        return data;
+    }
+    public Node getNext()
+    {
+        return next;
+    }
+    public void setNext(Node next)
+    {
+        this.next = next;
+    }
+    
+}
+class Queue
+{
+    Node rear;
+    Node front;
+    int size;
+    public Queue()
+    {
+        rear = null;
+        front = null;
+        size = 0;
+    }
+    public void enqueue(int data)
+    {
+        Node newnode = new Node(data);
+        if (isEmpty())
+        {
+            front = newnode;
+            rear = newnode;
+        }
+        else
+        {
+            rear.setNext(newnode);
+            rear = newnode;
+        }
+        size++;
+    }
+    public int dequeue()
+    {
+        int data;
+        if (isEmpty())
+        {
+            return -1;
+        }
+        else
+        {
+            data = front.getData();
+            front=front.getNext();
+            size--;
+            //return data;
+        }
+        return data;
+    }
+    public int front()
+    {
+        if (isEmpty())
+        {
+            return -1;
+        }
+        return front.getData();
+    }
+    public int getsize()
+    {
+        return size;
+    }
+    public boolean isEmpty()
+    {
+        return size==0;
+    }
+}
