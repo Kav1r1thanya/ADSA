@@ -1,0 +1,120 @@
+import java.util.*;
+import java.io.*;
+//public class Main 
+//{
+class Main
+{
+    int front;
+    int rear;
+    int maxsize;
+    int[] QueueArray;
+    public Main(int size)
+    {
+        front = -1;
+        rear = -1;
+        maxsize=size;
+        QueueArray = new int[maxsize];
+    }
+    public boolean isEmpty()
+    {
+        return front == -1 && rear == -1;
+    }
+    public boolean isFull()
+    {
+        return rear == maxsize - 1;
+    }
+    public void enqueue(int data)
+    {
+        if(isFull())
+        {
+            System.out.println("Queue is full");
+        }
+        else
+        {
+            if(isEmpty())
+            {
+                front = 0;
+            }
+            rear++;
+            QueueArray[rear] = data;
+        }
+        
+    }
+    public int dequeue()
+    {
+        if(isEmpty())
+        {
+            System.out.println("Queue is empty");
+        }
+        else
+        {
+            int dequeued = QueueArray[front];
+            if(rear==front)
+            {
+                rear=-1;
+                front=-1;
+            }
+            else
+            {
+            front++;
+            }
+            return dequeued;
+        }
+        return 0;
+    }
+
+    public void display()
+    {
+        if(isEmpty())
+        {
+            System.out.println("Queue is empty");
+        }
+        else
+        {
+            for(int i=front;i<=rear;i++)
+            {
+                System.out.print(QueueArray[i]+" ");
+            }
+            System.out.println();
+        }
+        //System.out.println();
+    }
+    public void reverse()
+    {
+        if(isEmpty())
+        {
+            System.out.println("Empty");
+            return;
+        }
+        else
+        {
+            Stack<Integer> stack = new Stack();
+            while(!isEmpty())
+            {
+                stack.push(dequeue());
+            }
+            while(!stack.isEmpty())
+            {
+                enqueue(stack.pop());
+            }
+        }
+    }
+
+    public static void main(String[] args)
+    {
+        //Queue queue = new Queue(size);
+        Scanner sc = new Scanner(System.in);
+        int size = sc.nextInt();
+        Main queue = new Main(size);
+        int[] QueueArray = new int[size];
+        for(int i=0;i<size;i++)
+        {
+           int ele = sc.nextInt();
+           queue.enqueue(ele);
+        }
+        queue.display();
+        queue.reverse();
+        queue.display();
+    }
+
+}
