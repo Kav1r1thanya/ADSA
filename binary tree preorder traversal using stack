@@ -1,0 +1,79 @@
+import java.io.*;
+import java.util.*;
+class Treenode
+{
+    int data;
+    Treenode left;
+    Treenode right;
+    Treenode(int data)
+    {
+        this.data = data;
+        left=null;
+        right = null;
+    }
+}
+public class Main
+{
+    public static void main(String[] args) 
+    {
+        Stack<Integer> st = new Stack<>();
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        //int top = -1;
+        for(int i=0;i<n;i++)
+        {
+            int val=sc.nextInt();
+            st.push(val);
+        }
+        /*while(!st.isEmpty())
+        {
+            System.out.println(st.pop());
+        }
+        static void pop()
+        {
+            
+        }*/
+        int data = st.pop();
+        System.out.println(data);
+        Queue<Treenode> queue = new LinkedList<>();
+        Treenode root = new Treenode(data);
+        queue.add(root);
+        while(!queue.isEmpty() && !st.isEmpty())
+        {
+            Treenode node = queue.poll();
+            if(!st.isEmpty())
+            {
+            int lval = st.pop();
+            System.out.println(lval);
+            if(lval !=-1)
+            {
+                node.left = new Treenode(lval);
+                queue.add(node.left);
+            }
+            }
+            if(!st.isEmpty())
+            {
+            int rval = st.pop();
+            System.out.println(rval);
+            if(rval !=-1)
+            {
+                node.right = new Treenode(rval);
+                queue.add(node.right);
+            }
+            }
+            
+        }
+        p(root);
+    }
+    public static void p(Treenode node)
+    {
+        if (node == null)
+        {
+            return;
+        }
+        System.out.print(node.data+" ");
+        p(node.left);
+        p(node.right);
+    }
+
+}
