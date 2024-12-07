@@ -1,0 +1,71 @@
+import java.io.*;
+import java.util.*;
+class Node
+{
+    int data;
+    Node left;
+    Node right;
+    Node(int x)
+    {
+        data=x;
+        left = null;
+        right = null;
+    }
+}
+public class Main
+{
+    public static void main(String[] args)
+    {
+        Node head = null;
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        while(t>0)
+        {
+            int x = sc.nextInt();
+            head = insertNode(x,head);
+            t--;
+        }
+        i(head);
+    }
+    public static Node insertNode(int value, Node head)
+    {
+        Node newnode = new Node(value);
+        if (head == null)
+        {
+            return newnode;
+        }
+        Node current = head;
+        while(true)
+        {
+            if(value<current.data)
+            {
+                if(current.left == null)
+                {
+                    current.left = newnode;
+                    break;
+                }
+                current = current.left;
+            }
+            else
+            {
+                if(current.right== null)
+                {
+                         current.right = newnode;
+                         break;
+                }
+                current = current.right; 
+            }
+        }
+        return head;
+    }
+    public static void i(Node node)
+    {
+        if (node == null)
+        {
+            return;
+        }
+        i(node.left);
+        System.out.print(node.data+" ");
+        i(node.right);
+    }
+}
