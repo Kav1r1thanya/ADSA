@@ -1,0 +1,35 @@
+import java.io.*;
+import java.util.*;
+class Main
+{
+ public static int bleh(int a)
+  {
+   int r = 100-a;
+   for(int i=0; i<=r/3; i++)
+   {
+     int j = (r-(i*3))/7;
+     if(i*3 + j*7 == r)
+     {
+       return 1;
+     }
+   }
+    return 0;
+   
+ }
+   
+    
+    
+  public static void main(String args[])
+  {
+    Scanner sc = new Scanner(System.in);
+    int n = sc.nextInt();
+    int i =0;
+    while(i<n)
+    {
+      int a = sc.nextInt();
+      System.out.println(bleh(a));
+      i++;
+    }
+  }
+}
+          
