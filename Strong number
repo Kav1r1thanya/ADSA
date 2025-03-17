@@ -1,0 +1,33 @@
+import java.io.*;
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) 
+	{
+		Scanner sc = new Scanner(System.in);
+		int m = sc.nextInt();
+		int t = m;
+		int add = 0;
+		while(m>0)
+		{
+		    int n = m%10;
+		    m=m/10;
+		    int fact = 1;
+		    for(int i=1;i<=n;i++)
+		    {
+		        fact = fact*i;
+		    }
+		    
+		    
+		    add = add + fact;
+		 }
+		 if (t==add)
+		 {
+		     System.out.println("same");
+		 }
+		 else
+		 {
+		     System.out.println("not same");
+		 }
+	}
+}
