@@ -1,0 +1,31 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+    public static void main(String args[] ) throws Exception {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+        Scanner sc = new Scanner(System.in);
+        int x = sc.nextInt();
+        int a = sc.nextInt();
+        int z=0;
+        for(int i=1;i<=x;i++)
+        {
+            z=x-(a*i);
+            if(z<=0)
+            {
+                break;
+            }
+                if(i%z==0)
+                {
+                    System.out.println(i);
+                    return;
+                }
+        
+            
+        }
+        System.out.println("None");
+    }
+}
