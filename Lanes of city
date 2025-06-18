@@ -1,0 +1,88 @@
+Easy approach: less iterations
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+    public static void main(String args[] ) throws Exception {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();
+        int d = sc.nextInt();
+        int i=0, j=0;
+        while(i<n && j<n)
+        {
+            int l1= b+(i*a);
+            int l2= d+(j*c);
+            if(l1==l2)
+            {
+                System.out.println(l1);
+                return;
+            }
+            else if(l1<l2)
+            {
+                i++;
+            }
+            else
+            {
+                j++;
+            }
+        }
+        System.out.println("No same amount of fuel found");
+        
+        
+    }
+}
+
+
+My approach : using array 
+
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+    public static void main(String args[] ) throws Exception {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();
+        int d = sc.nextInt();
+        int[] l1 = new int[N];
+        for(int i=0;i<N;i++)
+        {
+            l1[i]=b+(i*a);
+        }
+        int[] l2 = new int[N];
+        for(int i=0;i<N;i++)
+        {
+            l2[i]=d+(i*c);
+        }
+       
+        for(int i=0;i<N;i++)
+        {
+            for(int j=0;j<N;j++)
+            {
+                if(l1[i]==l2[j])
+                {
+                    System.out.println(l1[i]);
+                    return;
+                }
+                
+            }
+        }
+        System.out.println("No same amount of fuel found");
+        
+        
+    }
+}
