@@ -1,0 +1,32 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+    public static void main(String args[] ) throws Exception {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT */
+        Scanner sc = new Scanner(System.in);
+        int ab;
+        int rev=0;
+        int d=0;
+        int n = sc.nextInt();
+        if(n>-32786 && n<32786)
+        {
+            //ab=Math.abs(n);
+            while(n!=0)
+            {
+                d=n%10;
+                rev=(rev*10)+d;
+                n=n/10;
+            }
+            System.out.println(rev);
+        
+        }
+        else
+        {
+            System.out.println("Wrong value");
+        }
+    }
+}
