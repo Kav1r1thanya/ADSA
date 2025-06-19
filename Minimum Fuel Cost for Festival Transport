@@ -1,0 +1,33 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc = new Scanner(System.in);
+        int p = sc.nextInt();
+        int b = sc.nextInt();
+        int s = sc.nextInt();
+        int nb =0;
+        int ns =0;
+        //if(80/b>8/s)
+        //{
+            while(p>=80)
+            {
+                p=p-80;
+                nb++;
+            }
+            while(p<80 && p>0)
+            {
+                p=p-8;
+                ns++;
+            }
+        //}
+        
+        int bus = nb*b*75;
+        int shu = ns*s*75;
+        System.out.println(bus+shu);
+        
+    }
+}
