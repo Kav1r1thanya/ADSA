@@ -1,0 +1,21 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc = new Scanner(System.in);
+        char[] c = sc.nextLine().toCharArray();
+        int[] freq = new int[26];
+        for(char ch: c)
+        {
+            freq[ch-'a']++;
+        }
+        for(int i: freq)
+        {
+            System.out.println(i);
+        }
+        
+    }
+}
