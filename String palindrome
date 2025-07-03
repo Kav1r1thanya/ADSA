@@ -1,0 +1,57 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+    public static boolean ip(String s)
+    {
+        int l =0; 
+        int r = s.length()-1;
+        while(l<r)
+        {
+            if(s.charAt(l)!=s.charAt(r))
+            {
+                return false;
+            }
+                l++;
+                r--;
+        }
+            return true;  
+    }
+    public static boolean i(String s)
+    {
+        StringBuilder sb = new StringBuilder(s);
+        if(s.equals(sb.reverse()))
+        {
+            return true;
+        }
+        return false;
+    }
+    public static String cp(String s)
+    {
+        if(ip(s))
+        {
+            return "NULL";
+        }
+        else
+        {
+            for(int i=0;i<s.length();i++)
+            {
+                String sub = s.substring(i);
+                if(ip(sub))
+                {
+                    String x = s.substring(0,i);
+                    return new StringBuilder(x).reverse().toString();
+                    
+                }
+            }
+        }
+        return new StringBuilder(s.substring(0, s.length() - 1)).reverse().toString();
+    }
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        System.out.println(cp(s)); 
+    }
+}
