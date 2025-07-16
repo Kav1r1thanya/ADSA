@@ -22,14 +22,19 @@ public class Main{
                 freq.put(ch,1);
             }
         }
+        for(Map.Entry<Character,Integer> entry : freq.entrySet()) 
+        {
+            System.out.println(entry.getKey() + "->" + entry.getValue());
+        }
         for(char ch : s.toCharArray())
         {
             if(freq.get(ch)==1)
             {
                 System.out.println(ch);
-                break;
+                return;
             }
         }
+        System.out.println("NOne");
         
     }
 }
