@@ -1,0 +1,30 @@
+import java.util.*;
+
+public class Main{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String s = sc.nextLine();
+        String[] str = s.split(" ");
+        
+        Map<String, List<String>> a  = new HashMap<>();
+        for(String st : str)
+        {
+            char[] chars = st.toCharArray();
+            Arrays.sort(chars);
+            
+            String sorted = new String(chars);
+            if(!a.containsKey(sorted))
+            {
+                a.put(sorted,new ArrayList<>());
+            }
+            a.get(sorted).add(st);
+            //System.out.println(sorted);
+            
+        }
+        for(List<String> group : a.values())
+        {
+            System.out.println(group);
+        }
+
+    }
+}
