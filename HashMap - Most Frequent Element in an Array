@@ -1,0 +1,39 @@
+import java.util.*;
+
+public class Main{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for(int i=0;i<n;i++)
+        {
+            arr[i]=sc.nextInt();
+        }
+        //String s = sc.nextLine();
+        Map<Integer,Integer> freq = new HashMap<>();
+        int max = 0;
+        int freqele = arr[0];
+        for(int num: arr)
+        {
+            
+                freq.put(num,freq.getOrDefault(num,0)+1);
+            
+        }
+        for(Map.Entry<Integer,Integer> entry : freq.entrySet())
+        {
+            System.out.println(entry.getKey()+"->"+entry.getValue());
+        }
+        for(Map.Entry<Integer,Integer> entry : freq.entrySet())
+        {
+            //System.out.println(entry.getKey()+"->"+entry.getValue());
+            if(entry.getValue()>max)
+            {
+                max = entry.getValue();
+                freqele = entry.getKey();
+            }
+        }
+        System.out.println(freqele);
+        System.out.println(max);
+        
+    }
+}
