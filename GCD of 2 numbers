@@ -1,0 +1,29 @@
+class Solution {
+    public static int gcd(int a, int b) {
+        // code here
+        int max;
+        int min;
+        
+        
+        if (a>b)
+        {
+            max=a;
+            min=b;
+        }
+        else
+        {
+            max=b;
+            min=a;
+        }
+        int rem;
+        while(min!=0)
+        {
+            rem = max%min;
+            max=min;
+            min=rem;
+        }
+    
+        return max;
+    }
+    
+}
