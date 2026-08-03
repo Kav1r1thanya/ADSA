@@ -1,0 +1,31 @@
+class Solution {
+    public void rotateclockwise(int[] arr, int k) {
+        // code here
+        int n=arr.length;
+        if(n<=1)
+        {
+            return;
+        }
+        k=k%n;
+        if(k==0)
+        {
+            return;
+        }
+        rotate(arr,0,n-1);
+        rotate(arr,0,k-1);
+        rotate(arr,k,n-1);
+        
+    }
+    private void rotate(int[] arr,int i, int j)
+    {
+        
+        while(i<=j)
+        {
+            int temp=arr[i];
+            arr[i]=arr[j];
+            arr[j]=temp;
+            i++;
+            j--;
+        }
+    }
+}
