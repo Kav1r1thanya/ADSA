@@ -27,3 +27,64 @@ public class Main{
         
     }
 }
+
+Given an array arr[] containing positive integers. The elements in the array arr[] range from  1 to n (where n is the size of the array), and some numbers may be repeated or absent. Your have to count the frequency of all numbers in the range 1 to n and return an array of size n such that result[i] represents the frequency of the number i (1-based indexing).
+
+Examples:
+
+Input: arr[] = [2, 3, 2, 3, 5]
+Output: [0, 2, 2, 0, 1]
+Explanation: We have: 1 occurring 0 times, 2 occurring 2 times, 3 occurring 2 times, 4 occurring 0 times, and 5 occurring 1 time.
+
+
+class Solution {
+    public ArrayList<Integer> frequencyCount(int[] arr) {
+        // code here
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for(int num: arr)
+        {
+            map.put(num,map.getOrDefault(num,0)+1);
+        }
+        
+        ArrayList<Integer> res = new ArrayList<>();
+        
+        for(int i=1;i<=arr.length;i++)
+        {
+            res.add(map.getOrDefault(i,0));
+        }
+        return res;
+    }
+}
+
+Given an array arr[] of positive integers which may contain duplicate elements, return the frequency of each distinct element.
+
+Examples:
+
+Input: arr[] = [1, 2, 2, 3, 3, 5]
+Output: [[1, 1], [2, 2], [3, 2], [5, 1]]
+Explaiantion: Here element 1 and 5 occur 1 times, 2 and 3 occur 2 times.
+Input: arr[] = [1, 5, 6, 7, 7]
+Output: [[1, 1], [5, 1], [6, 1], [7, 2]]
+Explanation: Here element 1, 5 and 6 occur 1 times, 7 occur 2 times.
+
+
+class Solution {
+    public ArrayList<ArrayList<Integer>> countFreq(int[] arr) {
+        // code here
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for(int num: arr)
+        {
+            map.put(num,map.getOrDefault(num,0)+1);
+        }
+        ArrayList<ArrayList<Integer>> res = new ArrayList<>();
+        for(int num: map.keySet())
+        {
+            ArrayList<Integer> pair = new ArrayList<>();
+            pair.add(num);
+            pair.add(map.get(num));
+            res.add(pair);
+        }
+        return res;
+        
+    }
+}
