@@ -1,3 +1,30 @@
+class Solution {
+    boolean twoSum(int arr[], int target) {
+        // code here
+        Arrays.sort(arr);
+        int l = 0;
+        int r = arr.length-1;
+        while(l<r)
+        {
+            int s=arr[l]+arr[r];
+            if(s==target)
+            {
+                return true;
+            }
+            else if(s<target)
+            {
+                l++;
+            }
+            else
+            {
+                r--;
+            }
+        }
+        return false;
+        
+    }
+}
+
 import java.io.*;
 import java.util.*;
 
