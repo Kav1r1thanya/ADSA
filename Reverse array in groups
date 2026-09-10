@@ -1,0 +1,30 @@
+class Solution {
+    public void reverseInGroups(int[] arr, int k) {
+        // code here
+        int n = arr.length;
+        
+        int l =0;
+        int r = l+k-1;
+        
+        while(l<n && r<n)
+        {
+            rev(arr,l,r);
+            l=r+1;
+            r=l+k-1;
+        }
+        rev(arr,l,n-1);
+        
+        
+    }
+    public void rev(int[] arr,int l,int r)
+    {
+        while(l<r)
+        {
+            int temp = arr[l];
+            arr[l]=arr[r];
+            arr[r]=temp;
+            l++;
+            r--;
+        }
+    }
+}
