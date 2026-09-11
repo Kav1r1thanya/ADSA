@@ -1,0 +1,42 @@
+class Solution {
+    public int closest3Sum(int[] arr, int target) {
+        // code here
+        
+        Arrays.sort(arr);
+        int n=arr.length;
+        int clo=arr[0]+arr[1]+arr[2];
+        ArrayList<Integer> sum = new ArrayList<>();
+        for(int i=0;i<n-2;i++)
+        {
+            int l=i+1;
+            int r=n-1;
+            while(l<r)
+            {
+                int cur = arr[i]+arr[l]+arr[r];
+                int curdiff = Math.abs(cur-target);
+                int clodiff = Math.abs(clo-target);
+                if(curdiff<clodiff || (curdiff == clodiff && cur > clo))
+                {
+                    clo=cur;
+                }
+                if(cur<target)
+                {
+                    l++;
+                }
+                else if(cur>target)
+                {
+                    r--;
+                }
+                else
+                {
+                    return cur;
+                }
+                
+            }
+        }
+        
+        return clo;
+        
+        
+    }
+}
