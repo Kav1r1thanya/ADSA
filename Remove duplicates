@@ -1,0 +1,16 @@
+class Solution {
+    String removeDuplicates(String s) {
+        StringBuilder sb = new StringBuilder();
+        HashSet<Character> seen = new HashSet<>();
+        char[] chars = s.toCharArray();
+        for(char c:chars)
+        {
+            if(!seen.contains(c))
+            {
+                sb.append(c);
+                seen.add(c);
+            }
+        }
+        return sb.toString();
+    }
+}
